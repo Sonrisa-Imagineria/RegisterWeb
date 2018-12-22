@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Microsoft Taiwan 30 Anniversary Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/material-icon/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/static/js/main.js"></script>
+
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="booking-content">
+                <div class="booking-image">
+                    <img class="booking-img" src="/static/images/form-party.jpg" alt="Booking Image">
+                </div>
+                <div class="booking-form">
+                    <form id="booking-form" action="/regdb" method="POST">
+                        <h2>Join Microsoft Year End Party Now!</h2>
+                        <h3>We will send QRCode to your email and do lucky draw with alias, please make sure you write down the correct one!</h3>
+                        <div class="form-group form-input">
+                                <input type="text" name="name" id="name" value="" required/>
+                                <label for="name" class="form-label">您的姓名</label>
+                        </div>
+                        
+                        <div class="form-group form-input">
+                            <input type="text" name="alias" id="alias" value="" required/>
+                            <label for="alias" class="form-label">您的Alias</label>
+                        </div>
+
+                        <div class="form-group form-input">
+                            <select>
+                                <!-- option:not(:checked) -->
+                                <option>EC</option>
+                                <option>EP</option>
+                                <option>ES</option>
+                                <option>M&O</option>
+                                <option>OCP&SMC</option>
+                                <option>CSE</option>
+                                <option>IT</option>
+                                <option>RD</option>
+                                <option>ES</option>
+                                <option>CDS</option>
+                                <option>CSS</option>
+                                <option>HR</option>
+                                <option>CELA</option>
+                                <option>FINANCE</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="text" name="email" id="email" value="" required />
+                            <label for="email" class="form-label">您的Email</label>
+                        </div>
+                        <div class="form-group form-input">
+                                <select>
+                                    <!-- option:not(:checked) -->
+                                    <option>沒有特殊飲食</option>
+                                    <option>素食者</option>
+                                </select>
+                        </div>
+                        
+ 
+                        <div class="form-radio" id="accompany-form-radio">
+                                <label class="label-radio">是否參與尾牙</label>
+                                <div class="radio-item-list">
+                                        <span class="radio-item">
+                                                <input type="radio" name="number_people" value="2" id="number_people_2" />
+                                                <label for="number_people_1">參加, 共1人</label>
+                                            </span>
+                                            <span class="radio-item">
+                                                <input type="radio" name="number_people" value="4" id="number_people_4" checked="checked" />
+                                                <label for="number_people_2">參加, 共2人</label>
+                                            </span>
+                                            <span class="radio-item">
+                                                <input type="radio" name="number_people" value="6" id="number_people_6" />
+                                                <label for="number_people_business">不克參加,公假</label>
+                                            </span>
+                                            <span class="radio-item">
+                                                <input type="radio" name="number_people" value="8" id="number_people_8" />
+                                                <label for="number_people_babye">不克參加,產假</label>
+                                            </span>
+                                            <!-- <span class="radio-item">
+                                                <input type="radio" name="number_people" value="10" id="number_people_10" />
+                                                <label for="number_people_10">10</label>
+                                            </span> -->
+                                </div>
+                        </div>
+                        <div class="form-submit">
+                            <center><input type="submit" value="Submit" class="submit" id="submit" name="submit" /></center>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

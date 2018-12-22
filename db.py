@@ -17,6 +17,8 @@ class DB():
     password = os.environ['password']
     dbName = os.environ['dbName']
     collName = os.environ['collName']
+    print(collName)
+
     client = None
     db = None
     coll = None
@@ -51,9 +53,12 @@ class RegisterDB(DB):
     def __init__(self):
         self.connect()
 
-    def register(self, name, alias, department, email, cuisine, accompany):
+    def register(self, name, alias, department, email, cuisine, accompany):        print('register done')
+        print('register init')
         new_member = Member(name, alias, department, email, cuisine, accompany)
+        print('register new_member')
         self.coll.insert(new_member.__dict__)
+        print('qrcode init')
         qrcode = QR.gen(new_member)
         print('register done')
 

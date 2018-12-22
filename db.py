@@ -1,4 +1,3 @@
-from bson import ObjectId # For ObjectId to work
 from pymongo import MongoClient
 import os
 import genbarcode as QR
@@ -54,14 +53,13 @@ class RegisterDB(DB):
         self.connect()
 
     def register(self, name, alias, department, email, cuisine, accompany):
-        print('register init')
+        print("register init")
         new_member = Member(name, alias, department, email, cuisine, accompany)
-        print('register new_member')
+        print("new_member")
         self.coll.insert(new_member.__dict__)
-        print('qrcode init')
+        print("qrcodeinit")
         qrcode = QR.gen(new_member)
-        print('register done')
-
+        print("successful qr")
     def remove(self, alias):
         self.coll.remove({"alias": alias})
 

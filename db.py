@@ -53,13 +53,9 @@ class RegisterDB(DB):
         self.connect()
 
     def register(self, name, alias, department, email, cuisine, accompany):
-        print("register init")
         new_member = Member(name, alias, department, email, cuisine, accompany)
-        print("new_member")
         self.coll.insert(new_member.__dict__)
-        print("qrcodeinit")
-        qrcode = QR.gen(new_member)
-        print("successful qr")
+        # qrcode = QR.gen(new_member)
     def remove(self, alias):
         self.coll.remove({"alias": alias})
 

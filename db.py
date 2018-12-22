@@ -1,15 +1,30 @@
 from bson import ObjectId # For ObjectId to work
 from pymongo import MongoClient
 import os
+import genbarcode as QR
+try:
+    import configparser
+except:
+    from six.moves import configparser
+config = configparser.ConfigParser()
+config.read('config.txt')
 
 class DB():
-    mongoUrl=""
-    name=""
-    password=""
-    dbName=""
-    client=""
-    db=""
-    coll=""
+    mongoUrl = config.get('DB','mongoUrl')
+    print(mongoUrl)
+    name = config.get('DB','name')
+    password = config.get('DB','password')
+    dbName = config.get('DB','dbName')
+    collName = config.get('DB','collName')
+    # mongoUrl = "https://yearendl9.documents.azure.com:443/?ssl=true"
+    # mongoUrl = "mongodb://yearendl9:DDpFHkFDV1jiUhejE8B22GgwkNjfv5M3PUGSDbJHscbUckJ6PCPrBrYgAckxRJFizgIC1OiEPUeXyFFPxRUmnQ==@yearendl9.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+    # name = "yearendl9"
+    # password = 'DDpFHkFDV1jiUhejE8B22GgwkNjfv5M3PUGSDbJHscbUckJ6PCPrBrYgAckxRJFizgIC1OiEPUeXyFFPxRUmnQ=='
+    # dbName = "yvonne"
+    # collName= "test"
+    client = None
+    db = None
+    coll = None
 
     def connect(self):
         self.client = MongoClient(self.mongoUrl) # host uri 
@@ -41,8 +56,11 @@ class RegisterDB(DB):
     def __init__(self):
         self.connect()
 
-    def add(self, member):
-        self.coll.insert(member.__dict__)
+    def register(self, name, alias, department, email, cuisine, accompany):
+        new_member = Member(name, alias, department, email, cuisine, accompany)
+        self.coll.insert(new_member.__dict__)
+        qrcode = QR.gen(new_member)
+        print('register done')
 
     def remove(self, alias):
         self.coll.remove({"alias": alias})

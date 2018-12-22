@@ -14,7 +14,7 @@
 
 </head>
 <body>
-
+    
     <div class="main">
         <div class="container">
             <div class="booking-content">
@@ -22,7 +22,7 @@
                     <img class="booking-img" src="/static/images/form-party.jpg" alt="Booking Image">
                 </div>
                 <div class="booking-form">
-                    <form id="booking-form" action="/regdb" method="POST">
+                    <form id="booking-form">
                         <h2>Join Microsoft Year End Party Now!</h2>
                         <h3>We will send QRCode to your email and do lucky draw with alias, please make sure you write down the correct one!</h3>
                         <div class="form-group form-input">
@@ -36,22 +36,22 @@
                         </div>
 
                         <div class="form-group form-input">
-                            <select>
+                            <select name="department" id="department" required>
                                 <!-- option:not(:checked) -->
-                                <option>EC</option>
-                                <option>EP</option>
-                                <option>ES</option>
-                                <option>M&O</option>
-                                <option>OCP&SMC</option>
-                                <option>CSE</option>
-                                <option>IT</option>
-                                <option>RD</option>
-                                <option>ES</option>
-                                <option>CDS</option>
-                                <option>CSS</option>
-                                <option>HR</option>
-                                <option>CELA</option>
-                                <option>FINANCE</option>
+                                <option value="ec">EC</option>
+                                <option value="ep">EP</option>
+                                <option value="es">ES</option>
+                                <option value="mo">M&O</option>
+                                <option value="ocpsmc">OCP&SMC</option>
+                                <option value="cse">CSE</option>
+                                <option value="it">IT</option>
+                                <option value="rd">RD</option>
+                                <option value="es">ES</option>
+                                <option value="cds">CDS</option>
+                                <option value="css">CSS</option>
+                                <option value="hr">HR</option>
+                                <option value="cela">CELA</option>
+                                <option value=finance>FINANCE</option>
                             </select>
                         </div>
                         <div class="form-group form-input">
@@ -59,38 +59,33 @@
                             <label for="email" class="form-label">您的Email</label>
                         </div>
                         <div class="form-group form-input">
-                                <select>
-                                    <!-- option:not(:checked) -->
-                                    <option>沒有特殊飲食</option>
-                                    <option>素食者</option>
-                                </select>
+                            <select name="cuisine" id="cuisine" required>
+                                <!-- option:not(:checked) -->
+                                <option value="normal">沒有特殊飲食</option>
+                                <option value="veg">素食者</option>
+                            </select>
                         </div>
                         
- 
                         <div class="form-radio" id="accompany-form-radio">
-                                <label class="label-radio">是否參與尾牙</label>
-                                <div class="radio-item-list">
-                                        <span class="radio-item">
-                                                <input type="radio" name="number_people" value="2" id="number_people_2" />
-                                                <label for="number_people_1">參加, 共1人</label>
-                                            </span>
-                                            <span class="radio-item">
-                                                <input type="radio" name="number_people" value="4" id="number_people_4" checked="checked" />
-                                                <label for="number_people_2">參加, 共2人</label>
-                                            </span>
-                                            <span class="radio-item">
-                                                <input type="radio" name="number_people" value="6" id="number_people_6" />
-                                                <label for="number_people_business">不克參加,公假</label>
-                                            </span>
-                                            <span class="radio-item">
-                                                <input type="radio" name="number_people" value="8" id="number_people_8" />
-                                                <label for="number_people_babye">不克參加,產假</label>
-                                            </span>
-                                            <!-- <span class="radio-item">
-                                                <input type="radio" name="number_people" value="10" id="number_people_10" />
-                                                <label for="number_people_10">10</label>
-                                            </span> -->
-                                </div>
+                            <label class="label-radio">是否參與尾牙</label>
+                            <div class="radio-item-list">
+                                <span class="radio-item active checked" item-desc="共1人">
+                                    <input type="radio" name="accompany" value="1" id="yes_one" checked="checked" />
+                                    <label for="yes_one">是</label>
+                                </span>
+                                <span class="radio-item active checked" item-desc="共2人">
+                                    <input type="radio" name="accompany" value="2" id="yes_two" />
+                                    <label for="yes_two">是</label>
+                                </span>
+                                <span class="radio-item active checked" item-desc="公&nbsp;&nbsp;假&nbsp;">
+                                    <input type="radio" name="accompany" value="3" id="no_business" />
+                                    <label for="no_business">否</label>
+                                </span>
+                                <span class="radio-item active checked" item-desc="產&nbsp;假">
+                                    <input type="radio" name="accompany" value="4" id="no_baby" />
+                                    <label for="no_baby">否</label>
+                                </span>
+                            </div>
                         </div>
                         <div class="form-submit">
                             <center><input type="submit" value="Submit" class="submit" id="submit" name="submit" /></center>
@@ -100,5 +95,7 @@
             </div>
         </div>
     </div>
+
+
 </body>
 </html>

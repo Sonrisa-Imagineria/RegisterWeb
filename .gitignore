@@ -1,2 +1,5 @@
 .vscode/
-config
+config.txt
+__pycache__\
+.vs*
+

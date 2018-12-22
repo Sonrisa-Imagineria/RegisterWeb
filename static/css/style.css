@@ -251,6 +251,7 @@ body {
     padding-top: 4px; }
   .form-radio input + label {
     margin: 0 3px;
+    cursor: pointer;
     box-sizing: border-box;
     position: relative;
     display: inline-block;
@@ -269,9 +270,9 @@ body {
     -o-border-radius: 50%;
     -ms-border-radius: 50%; }
   .form-radio input:checked + label {
-    background-color: #fff;
-    color: #111;
-    border-color: #fff;
+    background-color: #111;
+    color: #fff;
+    border-color: #111;
     z-index: 1; }
   .form-radio input:focus + label {
     outline: none; }
@@ -286,9 +287,9 @@ body {
 .active {
   position: relative;
   background: #edb77d;
-  padding: 14px 1px;
-  margin-right: 7px;
-  margin-left: 3px;
+  padding: 12px 1px;
+  margin-right: 4px;
+  margin-left: 4px;
   border-radius: 24px;
   -moz-border-radius: 24px;
   -webkit-border-radius: 24px;
@@ -296,22 +297,22 @@ body {
   -ms-border-radius: 24px; }
   .active:after {
     position: absolute;
-    content: 'Person';
-    right: 17px;
+    content: attr(item-desc);
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
-    font-size: 11px;
+    font-size: 13px;
     color: #222;
     font-weight: bold; }
   .active input + label {
-    margin-right: 59px; }
+    margin-right: 35px; }
 
 form {
-  padding: 72px 70px 70px 70px; }
+  padding: 72px 70px 61px 70px; }
 
 .form-group {
   margin-bottom: 10px;
@@ -390,7 +391,7 @@ input:-moz-placeholder {
   width: auto;
   background: #edb77d;
   color: #fff;
-  padding: 15px 43px;
+  padding: 6px 20px;
   font-weight: bold;
   border: none;
   border-radius: 5px;

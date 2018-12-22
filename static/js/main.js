@@ -1,17 +1,13 @@
-(function ($) {
+$(document).ready(function () {
     // USE STRICT
     "use strict";
 
-    $("#cuisine-form-radio .radio-item").click(function(){
+    $(".form-radio .radio-item").click(function(){
         //Spot switcher:
-        $(this).parent().find(".radio-item").removeClass("active");
-        $(this).addClass("active");
-    });
-  
-    $("#accompany-form-radio .radio-item").click(function(){
-        //Spot switcher:
-        $(this).parent().find(".radio-item").removeClass("active");
-        $(this).addClass("active");
+        $(this).parent().find(".radio-item input").prop("checked", false);
+        $(this).find("input").prop("checked", true);
+        //$(this).parent().find(".radio-item input").removeClass("checked");
+        //$(this).addClass("checked");
     });
 
     // $('#time').parent().append('<ul class="list-item" id="newtime" name="time"></ul>');
@@ -51,7 +47,7 @@
     //     $("#food").children('.init').html($(this).html());
     //     FoodOptions.toggle();
     // });
-})(jQuery);
+});
 
 // Code goes here
 

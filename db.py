@@ -53,7 +53,7 @@ class RegisterDB(DB):
     def __init__(self):
         self.connect()
 
-    def register(self, name, alias, department, email, cuisine, accompany):        print('register done')
+    def register(self, name, alias, department, email, cuisine, accompany):
         print('register init')
         new_member = Member(name, alias, department, email, cuisine, accompany)
         print('register new_member')

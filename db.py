@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 import os
-import genbarcode as QR
+import genqrcode as QR
 try:
     import configparser
 except:
@@ -9,7 +9,6 @@ config = configparser.ConfigParser()
 config.read('config.txt')
 
 class DB():
-
     mongoUrl = os.environ['mongoUrl']
     print(mongoUrl)
     name = os.environ['name']
@@ -54,8 +53,9 @@ class RegisterDB(DB):
 
     def register(self, name, alias, department, email, cuisine, accompany):
         new_member = Member(name, alias, department, email, cuisine, accompany)
-        qrcode = QR.gen(new_member.__dict__)        
+        loginQR = QR.gen(alias)        
         self.coll.insert(new_member.__dict__)
+
     def remove(self, alias):
         self.coll.remove({"alias": alias})
 

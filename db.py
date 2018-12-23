@@ -10,18 +10,12 @@ config = configparser.ConfigParser()
 config.read('config.txt')
 
 class DB():
-    mongoUrl = config.get('DB','mongoUrl')
-    print(mongoUrl)
-    name = config.get('DB','name')
-    password = config.get('DB','password')
-    dbName = config.get('DB','dbName')
-    collName = config.get('DB','collName')
-    # mongoUrl = "https://yearendl9.documents.azure.com:443/?ssl=true"
-    # mongoUrl = "mongodb://yearendl9:DDpFHkFDV1jiUhejE8B22GgwkNjfv5M3PUGSDbJHscbUckJ6PCPrBrYgAckxRJFizgIC1OiEPUeXyFFPxRUmnQ==@yearendl9.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-    # name = "yearendl9"
-    # password = 'DDpFHkFDV1jiUhejE8B22GgwkNjfv5M3PUGSDbJHscbUckJ6PCPrBrYgAckxRJFizgIC1OiEPUeXyFFPxRUmnQ=='
-    # dbName = "yvonne"
-    # collName= "test"
+    # mongoUrl = config.get('DB','mongoUrl')
+    # print(mongoUrl)
+    # name = config.get('DB','name')
+    # password = config.get('DB','password')
+    # dbName = config.get('DB','dbName')
+    # collName = config.get('DB','collName')
     client = None
     db = None
     coll = None

@@ -1,6 +1,6 @@
-pymongo==3.7.2
-flask-bootstrap==3.3.7.1
-flask==1.0.2
-flask-sqlalchemy==2.3.2
-six==1.11.0
-qrcode==6.0
+# pymongo==3.7.2
+# flask-bootstrap==3.3.7.1
+# flask==1.0.2
+# flask-sqlalchemy==2.3.2
+# six==1.11.0
+# qrcode==6.0

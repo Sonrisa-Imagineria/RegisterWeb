@@ -1,6 +1,6 @@
 import qrcode
 
-serverUrl = ""
+serverUrl = "https://msftewcyep19.azurewebsites.net/test"
 loginParam = "?alias="
 qr = qrcode.QRCode(
     version = 1,

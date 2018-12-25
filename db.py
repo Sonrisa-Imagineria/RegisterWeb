@@ -73,7 +73,7 @@ class RegisterMail():
 	def send(self):
 		header = {'content-type': 'application/json'}
 		jsonBody = self.genReqBody()
-		requests.post(self.AzureMailService, headers = header, data = jsonBody)
+		requests.post(self.mailServiceUrl, headers = header, data = jsonBody)
 
 class RegisterDB(DB):
 

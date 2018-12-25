@@ -1,6 +1,9 @@
 from pymongo import MongoClient
 import os
+import requests
+import json
 import genqrcode as QR
+
 try:
     import configparser
 except:
@@ -46,22 +49,50 @@ class Member():
         self.cuisine = cuisine
         self.accompany = accompany
 
+class RegisterMail():
+	mailServiceUrl = os.environ['mailServiceUrl']
+	member = None
+	msg = None
+
+	def __init__(self, newMember):
+		self.member = newMember
+
+	def genMsg(self):
+		return QR.genHtml(self.member.alias)
+
+	def genReqBody(self):
+		msg = self.genMsg()
+		body = {
+			"name": self.member.name,
+			"alias": self.member.alias,
+			"email": self.member.email,
+			"message": msg
+		}
+		return json.dumps(body)
+
+	def send(self):
+		header = {'content-type': 'application/json'}
+		jsonBody = self.genReqBody()
+		requests.post(self.AzureMailService, headers = header, data = jsonBody)
+
 class RegisterDB(DB):
 
-    def __init__(self):
-        self.connect()
+	def __init__(self):
+		self.connect()
 
-    def register(self, name, alias, department, email, cuisine, accompany):
-        new_member = Member(name, alias, department, email, cuisine, accompany)
-        loginQR = QR.gen(alias)        
-        self.coll.insert(new_member.__dict__)
+	def register(self, name, alias, department, email, cuisine, accompany):
+		newMember = Member(name, alias, department, email, cuisine, accompany)
+		self.coll.insert(newMember.__dict__)
+		mail = RegisterMail(newMember)
+		mail.send()
+		print('register done')
 
-    def remove(self, alias):
-        self.coll.remove({"alias": alias})
+	def remove(self, alias):
+		self.coll.remove({"alias": alias})
 
-    def list(self):
-        memberList = self.coll.find()
-        for m in memberList: print(m)
+	def list(self):
+		memberList = self.coll.find()
+		for m in memberList: print(m)
 
 """
 # test case

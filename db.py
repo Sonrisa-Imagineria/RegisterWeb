@@ -81,10 +81,8 @@ class RegisterMail():
 		requests.post(self.mailServiceUrl, headers = header, data = jsonBody)
 
 class RegisterDB(DB):
-
 	def __init__(self):
 		self.connect()
-
 	def register(self, name, alias, department, email, cuisine, accompany):
 		newMember = Member(name, alias, department, email, cuisine, accompany)
 		try:

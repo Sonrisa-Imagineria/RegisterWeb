@@ -3,7 +3,7 @@ import pyqrcode
 import io
 import os
 import base64
-loginUrl = 'https://msftewcyep19.azurewebsites.net/login'
+loginUrl = 'https://msftewcyep19.azurewebsites.net/login?alias='
 
 def gen(alias):
 	memberLoginUrl = loginUrl + alias

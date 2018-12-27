@@ -31,9 +31,18 @@ def test():
       email = request.args.get("email")
       cuisine = request.args.get("cuisine")
       accompany = request.args.get("accompany")
-      rdb.register(name, alias, department, email, cuisine, accompany)
+      try:
+          rdb.register(name, alias, department, email, cuisine, accompany)
+          return render_template("registersuc.html")
+      except:
+          print('failed in register')
+          return render_template("testmap.html")
    return render_template("home.html")
 
 @app.route("/login")
 def login():
-   return "To be continued"
+   if "alias" in request.args:
+      rdb.login(request.args.get("alias"))
+      return "Log in!"
+   else:
+      return "Failed to log in!"

@@ -3,6 +3,8 @@ import os
 import requests
 import json
 import genqrcode as QR
+from flask import render_template
+from flask_bootstrap import Bootstrap
 
 try:
     import configparser
@@ -12,12 +14,12 @@ config = configparser.ConfigParser()
 config.read('config.txt')
 
 class DB():
-    mongoUrl = os.environ['mongoUrl']
+    mongoUrl = config.get('DB','mongoUrl')
     print(mongoUrl)
-    name = os.environ['name']
-    password = os.environ['password']
-    dbName = os.environ['dbName']
-    collName = os.environ['collName']
+    name = config.get('DB','name')
+    password = config.get('DB','password')
+    dbName = config.get('DB','dbName')
+    collName = config.get('DB','collName')
     print(collName)
 
     client = None
@@ -50,7 +52,8 @@ class Member():
         self.accompany = accompany
 
 class RegisterMail():
-	mailServiceUrl = os.environ['mailServiceUrl']
+	# mailServiceUrl = os.environ['mailServiceUrl']
+	mailServiceUrl = 'https://prod-12.southeastasia.logic.azure.com:443/workflows/b54dbc3d657d4a898de32660cae62042/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rKNe3qgHLndqU-Ds4p_CFkhK3E9B-mKRSdDf2Mhfako'
 	member = None
 	msg = None
 
@@ -82,10 +85,19 @@ class RegisterDB(DB):
 
 	def register(self, name, alias, department, email, cuisine, accompany):
 		newMember = Member(name, alias, department, email, cuisine, accompany)
-		self.coll.insert(newMember.__dict__)
+		try:
+			self.coll.insert(newMember.__dict__)
+			print('success in register')
+		except:
+			print('failed in register')
+			#flash('failed in register')
+
 		mail = RegisterMail(newMember)
 		mail.send()
 		print('register done')
+
+	def login(self, alias):
+		print('login done')
 
 	def remove(self, alias):
 		self.coll.remove({"alias": alias})

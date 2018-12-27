@@ -1,9 +1,9 @@
+import png
 import pyqrcode
 import io
 import os
 import base64
-
-loginUrl = os.environ['loginUrl']
+loginUrl = 'https://msftewcyep19.azurewebsites.net/login'
 
 def gen(alias):
 	memberLoginUrl = loginUrl + alias

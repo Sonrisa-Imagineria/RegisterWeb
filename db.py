@@ -8,8 +8,8 @@ try:
     import configparser
 except:
     from six.moves import configparser
-config = configparser.ConfigParser()
-config.read('config.txt')
+# config = configparser.ConfigParser()
+# config.read('config.txt')
 
 class DB():
 	mongoUrl = os.environ['mongoUrl']

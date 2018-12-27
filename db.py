@@ -13,12 +13,10 @@ except:
 
 class DB():
 	mongoUrl = os.environ['mongoUrl']
-    print(mongoUrl)
-    name = os.environ['name']
-    password = os.environ['password']
-    dbName = os.environ['dbName']
-    collName = os.environ['collName']
-    print(collName)
+	name = os.environ['name']
+	password = os.environ['password']
+	dbName = os.environ['dbName']
+	collName = os.environ['collName']
     # mongoUrl = config.get('DB','mongoUrl')
     # print(mongoUrl)
     # name = config.get('DB','name')

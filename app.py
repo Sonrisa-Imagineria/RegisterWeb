@@ -33,7 +33,7 @@ def test():
       accompany = request.args.get("accompany")
       try:
           rdb.register(name, alias, department, email, cuisine, accompany)
-          return render_template("registersuc.html")
+          return render_template("successful.html")
       except:
           print('failed in register')
           return render_template("testmap.html")

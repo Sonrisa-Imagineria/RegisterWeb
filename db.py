@@ -41,7 +41,7 @@ class Member():
 	name = None
 	alias = None
 	department = None
-	email = Non
+	email = None
 	cuisine = None
 	accompany = None
 

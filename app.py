@@ -14,7 +14,7 @@ rdb = DB.RegisterDB()
 
 @app.route("/")
 def home():
-   return "Hello!"
+   return "Hello! 你來錯地方囉!"
 
 @app.route("/MSFT30/EWC/register")
 def register():
@@ -22,7 +22,7 @@ def register():
    return render_template("index.html")
    # return "Register!"
 
-@app.route("/test")
+@app.route("/FY19YEP/register")
 def test():
    if "name" in request.args:
       name = request.args.get("name")

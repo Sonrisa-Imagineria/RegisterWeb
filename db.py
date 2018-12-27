@@ -37,13 +37,13 @@ class DB():
 	def close(self):
 		self.client.close()
 
-	class Member():
-		name = None
-		alias = None
-		department = None
-		email = Non
-		cuisine = None
-		accompany = None
+class Member():
+	name = None
+	alias = None
+	department = None
+	email = Non
+	cuisine = None
+	accompany = None
 
 	def __init__(self, name, alias, department, email, cuisine, accompany):
 		self.name = name
@@ -53,11 +53,11 @@ class DB():
 		self.cuisine = cuisine
 		self.accompany = accompany
 
-	class RegisterMail():
-		# mailServiceUrl = os.environ['mailServiceUrl']
-		mailServiceUrl = 'https://prod-12.southeastasia.logic.azure.com:443/workflows/b54dbc3d657d4a898de32660cae62042/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rKNe3qgHLndqU-Ds4p_CFkhK3E9B-mKRSdDf2Mhfako'
-		member = None
-		msg = None
+class RegisterMail():
+	# mailServiceUrl = os.environ['mailServiceUrl']
+	mailServiceUrl = 'https://prod-12.southeastasia.logic.azure.com:443/workflows/b54dbc3d657d4a898de32660cae62042/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rKNe3qgHLndqU-Ds4p_CFkhK3E9B-mKRSdDf2Mhfako'
+	member = None
+	msg = None
 
 	def __init__(self, newMember):
 		self.member = newMember
@@ -80,7 +80,7 @@ class DB():
 		jsonBody = self.genReqBody()
 		requests.post(self.mailServiceUrl, headers = header, data = jsonBody)
 
-	class RegisterDB(DB):
+class RegisterDB(DB):
 
 	def __init__(self):
 		self.connect()

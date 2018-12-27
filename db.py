@@ -3,8 +3,6 @@ import os
 import requests
 import json
 import genqrcode as QR
-from flask import render_template
-from flask_bootstrap import Bootstrap
 
 try:
     import configparser
@@ -14,13 +12,20 @@ config = configparser.ConfigParser()
 config.read('config.txt')
 
 class DB():
-    mongoUrl = config.get('DB','mongoUrl')
+	mongoUrl = os.environ['mongoUrl']
     print(mongoUrl)
-    name = config.get('DB','name')
-    password = config.get('DB','password')
-    dbName = config.get('DB','dbName')
-    collName = config.get('DB','collName')
+    name = os.environ['name']
+    password = os.environ['password']
+    dbName = os.environ['dbName']
+    collName = os.environ['collName']
     print(collName)
+    # mongoUrl = config.get('DB','mongoUrl')
+    # print(mongoUrl)
+    # name = config.get('DB','name')
+    # password = config.get('DB','password')
+    # dbName = config.get('DB','dbName')
+    # collName = config.get('DB','collName')
+    # print(collName)
 
     client = None
     db = None

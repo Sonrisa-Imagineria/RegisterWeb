@@ -36,7 +36,7 @@ def test():
           return render_template("successful.html")
       except:
           print('failed in register')
-          return render_template("testmap.html")
+          return render_template("registesuc.html")
    return render_template("home.html")
 
 @app.route("/login")

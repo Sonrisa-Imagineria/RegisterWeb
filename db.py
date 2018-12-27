@@ -28,32 +28,32 @@ class DB():
 	db = None
 	coll = None
 
-    def connect(self):
-        self.client = MongoClient(self.mongoUrl) # host uri 
-        self.db = self.client[self.dbName] # Select the database
-        self.db.authenticate(name=self.name,password=self.password)
-        self.coll = self.db[self.collName]
+	def connect(self):
+		self.client = MongoClient(self.mongoUrl) # host uri 
+		self.db = self.client[self.dbName] # Select the database
+		self.db.authenticate(name=self.name,password=self.password)
+		self.coll = self.db[self.collName]
 
-    def close(self):
-        self.client.close()
+	def close(self):
+		self.client.close()
 
-class Member():
-    name = None
-    alias = None
-    department = None
-    email = None
-    cuisine = None
-    accompany = None
+	class Member():
+	name = None
+	alias = None
+	department = None
+	email = None
+	cuisine = None
+	accompany = None
 
-    def __init__(self, name, alias, department, email, cuisine, accompany):
-        self.name = name
-        self.alias = alias
-        self.department = department
-        self.email = email
-        self.cuisine = cuisine
-        self.accompany = accompany
+	def __init__(self, name, alias, department, email, cuisine, accompany):
+		self.name = name
+		self.alias = alias
+		self.department = department
+		self.email = email
+		self.cuisine = cuisine
+		self.accompany = accompany
 
-class RegisterMail():
+	class RegisterMail():
 	# mailServiceUrl = os.environ['mailServiceUrl']
 	mailServiceUrl = 'https://prod-12.southeastasia.logic.azure.com:443/workflows/b54dbc3d657d4a898de32660cae62042/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rKNe3qgHLndqU-Ds4p_CFkhK3E9B-mKRSdDf2Mhfako'
 	member = None
@@ -80,7 +80,7 @@ class RegisterMail():
 		jsonBody = self.genReqBody()
 		requests.post(self.mailServiceUrl, headers = header, data = jsonBody)
 
-class RegisterDB(DB):
+	class RegisterDB(DB):
 
 	def __init__(self):
 		self.connect()
@@ -108,11 +108,11 @@ class RegisterDB(DB):
 		memberList = self.coll.find()
 		for m in memberList: print(m)
 
-"""
-# test case
-member = Member('real-aaa', 'aaa', 'bbb@mail.com', 'apple', 'onefriend')
-rdb = RegisterDB()
-rdb.add(member)
-rdb.list()
-print('end')
-"""
+	"""
+	# test case
+	member = Member('real-aaa', 'aaa', 'bbb@mail.com', 'apple', 'onefriend')
+	rdb = RegisterDB()
+	rdb.add(member)
+	rdb.list()
+	print('end')
+	"""

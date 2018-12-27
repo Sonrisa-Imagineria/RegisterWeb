@@ -38,12 +38,12 @@ class DB():
 		self.client.close()
 
 	class Member():
-	name = None
-	alias = None
-	department = None
-	email = None
-	cuisine = None
-	accompany = None
+		name = None
+		alias = None
+		department = None
+		email = Non
+		cuisine = None
+		accompany = None
 
 	def __init__(self, name, alias, department, email, cuisine, accompany):
 		self.name = name
@@ -54,10 +54,10 @@ class DB():
 		self.accompany = accompany
 
 	class RegisterMail():
-	# mailServiceUrl = os.environ['mailServiceUrl']
-	mailServiceUrl = 'https://prod-12.southeastasia.logic.azure.com:443/workflows/b54dbc3d657d4a898de32660cae62042/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rKNe3qgHLndqU-Ds4p_CFkhK3E9B-mKRSdDf2Mhfako'
-	member = None
-	msg = None
+		# mailServiceUrl = os.environ['mailServiceUrl']
+		mailServiceUrl = 'https://prod-12.southeastasia.logic.azure.com:443/workflows/b54dbc3d657d4a898de32660cae62042/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rKNe3qgHLndqU-Ds4p_CFkhK3E9B-mKRSdDf2Mhfako'
+		member = None
+		msg = None
 
 	def __init__(self, newMember):
 		self.member = newMember

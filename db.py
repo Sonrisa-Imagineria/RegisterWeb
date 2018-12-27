@@ -24,10 +24,9 @@ class DB():
     # dbName = config.get('DB','dbName')
     # collName = config.get('DB','collName')
     # print(collName)
-
-    client = None
-    db = None
-    coll = None
+	client = None
+	db = None
+	coll = None
 
     def connect(self):
         self.client = MongoClient(self.mongoUrl) # host uri 

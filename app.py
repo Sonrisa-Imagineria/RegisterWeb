@@ -31,6 +31,7 @@ def test():
       email = request.args.get("email")
       cuisine = request.args.get("cuisine")
       accompany = request.args.get("accompany")
+      greeting = request.args.get("greeting")
       try:
           rdb.register(name, alias, department, email, cuisine, accompany)
           return render_template("successful.html")

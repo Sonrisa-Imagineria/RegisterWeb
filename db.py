@@ -44,14 +44,16 @@ class Member():
 	email = None
 	cuisine = None
 	accompany = None
+	greeting = None
 
-	def __init__(self, name, alias, department, email, cuisine, accompany):
+	def __init__(self, name, alias, department, email, cuisine, accompany, greeting):
 		self.name = name
 		self.alias = alias
 		self.department = department
 		self.email = email
 		self.cuisine = cuisine
 		self.accompany = accompany
+		self.greeting = greeting
 
 class RegisterMail():
 	# mailServiceUrl = os.environ['mailServiceUrl']
@@ -83,8 +85,8 @@ class RegisterMail():
 class RegisterDB(DB):
 	def __init__(self):
 		self.connect()
-	def register(self, name, alias, department, email, cuisine, accompany):
-		newMember = Member(name, alias, department, email, cuisine, accompany)
+	def register(self, name, alias, department, email, cuisine, accompany,greeting):
+		newMember = Member(name, alias, department, email, cuisine, accompany, greeting)
 		try:
 			self.coll.insert(newMember.__dict__)
 			print('success in register')

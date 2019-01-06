@@ -107,6 +107,7 @@ class RegisterDB(DB):
 	def list(self):
 		memberList = self.coll.find()
 		for m in memberList: print(m)
+		return memberList
 
 	"""
 	# test case

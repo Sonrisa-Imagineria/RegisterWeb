@@ -8,7 +8,6 @@ import db as DB
 
 app = Flask(__name__)
 static_folder_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "client")
-
 bootstrap = Bootstrap(app)
 rdb = DB.RegisterDB()
 
@@ -33,7 +32,7 @@ def test():
       accompany = request.args.get("accompany")
       greeting = request.args.get("greeting")
       try:
-          rdb.register(name, alias, department, email, cuisine, accompany, greeting)
+        #   rdb.register(name, alias, department, email, cuisine, accompany, greeting)
           return render_template("successful.html")
       except:
           print('failed in register')
@@ -43,7 +42,16 @@ def test():
 @app.route("/login")
 def login():
    if "alias" in request.args:
-      rdb.login(request.args.get("alias"))
+    #   rdb.login(request.args.get("alias"))
       return "Log in!"
    else:
       return "Failed to log in!"
+
+@app.route("/luckydraw")
+def luckyDraw():
+    return render_template("luckydraw.html")
+
+@app.route("/getdbData")
+def getdata():
+    rdb.list()
+    # print(rdb.list)
